@@ -14,14 +14,7 @@ class Boid():
         self.velocity = Vector(vx, vy)
         self.acceleration = Vector(ax, ay)
 
-    def show(self):
-        stroke(255)
-        circle(self.position.x, self.position.y, 10)
-
-    def update(self):
-        self.position += self.velocity
-        self.velocity += self.acceleration
-
+    def checkBorders(self):
         # Left and right borders
         if self.position.x > width:
             self.position.x = 0
@@ -33,3 +26,13 @@ class Boid():
             self.position.y = 0
         elif self.position.y < 0:
             self.position.y = height
+
+    def show(self):
+        stroke(255)
+        circle(self.position.x, self.position.y, 10)
+
+    def update(self):
+        self.position += self.velocity
+        self.velocity += self.acceleration
+
+        self.checkBorders()
