@@ -1,7 +1,7 @@
 from numpy.random import random
 from numpy.linalg import norm
 from p5 import *
-from config import height, width
+from config import height, maxSpeed, width
 
 class Boid():
     def __init__(self, x, y):
@@ -27,6 +27,11 @@ class Boid():
         elif self.position.y < 0:
             self.position.y = height
 
+    def checkVelocity(self):
+        if norm(self.velocity) > maxSpeed:
+            self.velocity = self.velocity / norm(self.velocity) * maxSpeed
+            self.acceleration = Vector(0, 0)
+
     def show(self):
         stroke(255)
         circle(self.position.x, self.position.y, 10)
@@ -36,3 +41,4 @@ class Boid():
         self.velocity += self.acceleration
 
         self.checkBorders()
+        self.checkVelocity()
