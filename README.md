@@ -16,5 +16,14 @@ cd ./Boids
 python ./src/main.py
 ```
 
+## Config
+> config.py
+```py
+boidNumber = 30 # Number of boids
+height = 500 # Height of the window
+maxSpeed = 5 # Boid max speed
+width = 500 # Width of the window
+```
+
 ## Help
 Put a star and follow me 🙃
