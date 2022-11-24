@@ -2,8 +2,7 @@
 [Boids](https://fr.wikipedia.org/wiki/Boids) is an artificial life program which simulates the flocking behaviour of birds
 
 ## Current missing elements
-- keep boids inside the window
-- bring together the boids when they approach each other
+- bring together the boids when they approach each other (flock)
 
 ## Dependencies
 **Python 3.9.15 required**
