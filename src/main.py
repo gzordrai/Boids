@@ -5,12 +5,12 @@ from boid import Boid
 if __name__ == "__main__":
     boidNumber = 30
     boids = []
-    height = 1000
-    width = 1000
+    height = 500
+    width = 500
 
     for _ in range(boidNumber):
-        x = randint(1000)
-        y = randint(1000)
+        x = randint(width)
+        y = randint(height)
         boids.append(Boid(x, y, width, height))
 
     def setup():
