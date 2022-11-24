@@ -16,16 +16,9 @@ class Boid():
 
     def checkBorders(self):
         # Left and right borders
-        if self.position.x > width:
-            self.position.x = 0
-        elif self.position.x < 0:
-            self.position.x = width
-
+        self.position.x = self.position.x % width
         # Top and bottom borders
-        if self.position.y > height:
-            self.position.y = 0
-        elif self.position.y < 0:
-            self.position.y = height
+        self.position.y = self.position.y % height
 
     def checkVelocity(self):
         if norm(self.velocity) > maxSpeed:
