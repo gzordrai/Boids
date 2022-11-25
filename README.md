@@ -4,6 +4,9 @@
 ## Current missing elements
 - bring together the boids when they approach each other (flock)
 
+## Demo
+![](./demo/demo.gif)
+
 ## Dependencies
 **Python 3.9.15 required**
 - numpy 1.23.5
