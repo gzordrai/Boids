@@ -25,6 +25,7 @@ python ./src/main.py
 boidNumber = 30 # Number of boids
 height = 500 # Height of the window
 maxSpeed = 5 # Boid max speed
+perception = 100 # Boid perception
 width = 500 # Width of the window
 ```
 
