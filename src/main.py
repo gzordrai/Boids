@@ -20,6 +20,7 @@ if __name__ == "__main__":
 
         for boid in boids:
             boid.show()
+            boid.align(boids)
             boid.update()
 
     run()

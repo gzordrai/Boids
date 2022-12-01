@@ -1,7 +1,8 @@
-from numpy.random import random
+from numpy import zeros
 from numpy.linalg import norm
+from numpy.random import random
 from p5 import *
-from config import height, maxSpeed, width
+from config import height, maxSpeed, perception, width
 
 class Boid():
     def __init__(self, x, y):
@@ -13,6 +14,25 @@ class Boid():
         self.position = Vector(x, y)
         self.velocity = Vector(vx, vy)
         self.acceleration = Vector(ax, ay)
+
+    # steering = avgVec - self.velocity
+    def align(self, boids):
+        steering = Vector(*zeros(2))
+        avgVec = Vector(*zeros(2))
+        total = 0
+
+        for boid in boids:
+            if norm(boid.position - self.position) < perception:
+                avgVec += boid.velocity
+                total += 1
+
+        if total > 0:
+            avgVec /= total
+            avgVec = Vector(*avgVec)
+            avgVec = (avgVec / norm(avgVec)) * maxSpeed
+            steering = avgVec - self.velocity
+
+        self.acceleration += steering
 
     def checkBorders(self):
         # Left and right borders
